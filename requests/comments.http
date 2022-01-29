@@ -1,0 +1,13 @@
+### Get all comments by Post id
+
+GET http://localhost:4001/posts/123/comments
+Accept: application/json
+
+### Create comment by Post id
+
+POST http://localhost:4001/posts/123/comments
+Content-Type: application/123/comments
+
+{
+  "content": "I am a comment"
+}

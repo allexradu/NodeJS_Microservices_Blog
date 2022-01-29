@@ -1,0 +1,4 @@
+.idea
+posts/node_modules
+comments/node_modules
+.env

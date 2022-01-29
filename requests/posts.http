@@ -1,0 +1,15 @@
+### Get all posts
+
+GET http://localhost:4000/posts
+Accept: application/json
+
+### Create new post
+
+POST http://localhost:4000/posts
+Content-Type: application/json
+
+{
+  "title": "test 1232"
+}
+
+###

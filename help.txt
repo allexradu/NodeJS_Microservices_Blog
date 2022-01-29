@@ -1,0 +1,8 @@
+# Kill current node app running wild
+ou can also go the command line route:
+
+ps aux | grep node
+to get the process ids.
+
+Then:
+kill -9 PID
