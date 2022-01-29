@@ -1,14 +1,14 @@
 ### Get all comments by Post id
 
-GET http://localhost:4001/posts/123/comments
+GET http://localhost:4001/posts/3a39e20b/comments
 Accept: application/json
 
 ### Create comment by Post id
-POST http://localhost:4001/posts/ecda7bd3/comments
+POST http://localhost:4001/posts/97d90a2e/comments
 Content-Type: application/json
 
 {
-  "content": "I am a comment2"
+  "content": "I am a comment7"
 }
 
 ###
