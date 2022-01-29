@@ -1,0 +1,6 @@
+### Get all posts
+
+GET http://localhost:4002/posts
+Accept: application/json
+
+###

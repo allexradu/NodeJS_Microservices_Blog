@@ -4,10 +4,11 @@ GET http://localhost:4001/posts/123/comments
 Accept: application/json
 
 ### Create comment by Post id
-
-POST http://localhost:4001/posts/123/comments
-Content-Type: application/123/comments
+POST http://localhost:4001/posts/ecda7bd3/comments
+Content-Type: application/json
 
 {
-  "content": "I am a comment"
+  "content": "I am a comment2"
 }
+
+###
