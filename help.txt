@@ -6,3 +6,43 @@ to get the process ids.
 
 Then:
 kill -9 PID
+
+---------
+docker build -t allexraduid/node_js_microservices_blog_posts .
+docker build -t allexraduid/node_js_microservices_blog_event_bus .
+docker build -t allexraduid/node_js_microservices_blog_comments .
+docker build -t allexraduid/node_js_microservices_blog_moderation .
+docker build -t allexraduid/node_js_microservices_blog_query .
+docker push allexraduid/node_js_microservices_blog_posts
+docker push allexraduid/node_js_microservices_blog_event_bus
+docker push allexraduid/node_js_microservices_blog_comments
+docker push allexraduid/node_js_microservices_blog_moderation
+docker push allexraduid/node_js_microservices_blog_query
+kubectl apply -f posts.yaml
+kubectl apply -f posts-depl.yaml
+kubectl apply -f posts-srv.yaml
+kubectl apply -f event-bus-depl.yaml
+kubectl apply -f .
+kubectl rollout restart deployments posts-depl
+kubectl get deployments
+kubectl rollout restart deployment posts-depl
+kubectl rollout restart deployment event-bus-depl
+
+kubectl get services
+kubectl describe service posts-srv
+
+kubectl exec -it posts sh
+kubectl logs posts
+kubectl delete pod posts
+kubectl describe pod posts
+
+kubectl describe deployment posts-depl
+kubectl delete deployment posts-depl
+
+
+kubectl get pods
+kubectl exec -it [pod_name] [cmd]
+kubectl logs [pod_name]
+kubectl delete pod [pod_name]
+kubectl apply -f [config file name]
+kubectl describe [pod_name]

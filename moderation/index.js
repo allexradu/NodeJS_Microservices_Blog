@@ -1,6 +1,6 @@
 import Express from 'express';
 import axios from "axios";
-import {sleep} from "../utils/index.js";
+import {sleep} from "./utils/index.js";
 
 const app = Express()
 app.use(Express.json())
@@ -14,7 +14,7 @@ app.post('/events', async (req, res) => {
 
         await sleep(10000);
 
-        await axios.post('http://localhost:4005/events', {
+        await axios.post('http://event-bus-srv:4005/events', {
             type: 'CommentModerated',
             data: {
                 id: data.id,

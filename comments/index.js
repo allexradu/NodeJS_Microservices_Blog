@@ -1,13 +1,13 @@
 import Express from 'express';
 import {randomBytes} from 'crypto';
-import Cors from 'cors';
+import cors from 'cors';
 import axios from 'axios';
 
 
 const app = Express();
 app.use(Express.json());
 app.use(Express.urlencoded({extended: true}))
-app.use(Cors());
+app.use(cors());
 
 const commentsByPostId = {}
 
@@ -24,7 +24,7 @@ app.post('/posts/:id/comments', async (req, res) => {
     comments.push({id: commentId, content, status: 'pending'})
     commentsByPostId[req.params.id] = comments;
 
-    await axios.post('http://localhost:4005/events', {
+    await axios.post('http://event-bus-srv:4005/events', {
         type: 'CommentCreated',
         data: {
             id: commentId,
@@ -53,7 +53,7 @@ app.post('/events', async (req, res) => {
 
         comment.status = status;
 
-        await axios.post('http://localhost:4005/events', {
+        await axios.post('http://event-bus-srv:4005/events', {
             type: 'CommentUpdated',
             data: {
                 id,
