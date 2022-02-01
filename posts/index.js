@@ -15,7 +15,7 @@ app.get('/posts', (req, res) => {
     res.send(posts);
 });
 
-app.post('/posts', async (req, res) => {
+app.post('/posts/create', async (req, res) => {
     const id = randomBytes(4).toString('hex');
     const {title} = req.body;
 
@@ -28,12 +28,12 @@ app.post('/posts', async (req, res) => {
         data: {id, title}
     });
 
-    res.status(201).send(posts[id])
+    res.status(201).send(posts[id]);
 });
 
 
 app.post('/events', (req, res) => {
-    console.log('Received Event: ', req.body.type)
+    console.log('Received Event: ', req.body.type);
     console.log(req.body);
 
     res.send({});

@@ -27,6 +27,8 @@ kubectl rollout restart deployments posts-depl
 kubectl get deployments
 kubectl rollout restart deployment posts-depl
 kubectl rollout restart deployment event-bus-depl
+kubectl apply -f ingress-srv.yaml
+kubectl get pods --namespace=ingress-nginx
 
 kubectl get services
 kubectl describe service posts-srv
@@ -46,3 +48,6 @@ kubectl logs [pod_name]
 kubectl delete pod [pod_name]
 kubectl apply -f [config file name]
 kubectl describe [pod_name]
+
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/cloud/deploy.yaml
